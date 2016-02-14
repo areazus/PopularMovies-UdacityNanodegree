@@ -1,0 +1,64 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+             android:layout_height="match_parent" android:layout_centerHorizontal="true"
+             android:scrollbarStyle="insideOverlay"
+             tools:context="us.areaz.popularmovies.MovieDetailActivity$MovieDetailActivityFragment">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/detailed_movie_backdrop_view"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentTop="true"/>
+
+        <ImageView
+            android:id="@+id/detailed_movie_poster_view"
+            android:layout_width="150dp"
+            android:layout_height="225dp"
+            android:layout_margin="15dp"
+            android:layout_below="@id/detailed_movie_backdrop_view"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView android:id="@+id/detailed_movie_title"
+                  android:textSize="30dp"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginRight="15dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/detailed_movie_backdrop_view"
+                  android:layout_toRightOf="@id/detailed_movie_poster_view"/>
+
+        <TextView android:id="@+id/detailed_movie_rating"
+                  android:textSize="15dp"
+                  android:layout_marginRight="18dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/detailed_movie_title"
+                  android:layout_toRightOf="@id/detailed_movie_poster_view"/>
+
+        <TextView android:id="@+id/detailed_movie_release_date"
+                  android:textSize="15dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginRight="18dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/detailed_movie_rating"
+                  android:layout_toRightOf="@id/detailed_movie_poster_view"/>
+
+        <View    android:id="@+id/detailed_movie_line"
+                 android:layout_width="fill_parent"
+                 android:layout_height="2dp"
+                 android:background="#c0c0c0"
+                 android:layout_below="@id/detailed_movie_poster_view"/>
+
+        <TextView android:id="@+id/detailed_movie_overview"
+                  android:textSize="18dp"
+                  android:layout_margin="15dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/detailed_movie_line"/>
+    </RelativeLayout>
+</ScrollView>

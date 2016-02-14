@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="us.areaz.popularmovies.MainActivity">
+
+    <item android:title="@string/sort_by_menu_group_title">
+        <menu>
+            <group>
+                <item android:id="@+id/sort_by_popularity"
+                      android:title="@string/sort_by_popularity" />
+                <item android:id="@+id/sort_by_rating"
+                      android:title="@string/sort_by_rating" />
+            </group>
+        </menu>
+    </item>
+</menu>
