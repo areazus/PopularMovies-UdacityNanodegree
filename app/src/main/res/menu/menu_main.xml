@@ -13,4 +13,16 @@
             </group>
         </menu>
     </item>
+    <item android:title="@string/show_menu_group_title">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/showAll"
+                      android:title="@string/show_All"
+                      android:checked="true"/>
+                <item android:id="@+id/onlyFav"
+                      android:title="@string/show_Favorites" />
+            </group>
+        </menu>
+    </item>
+
 </menu>

@@ -44,4 +44,10 @@ public class MovieResults {
         }
         return null;
     }
+
+    public void clearAll() {
+        if(getResultCount()>0){
+            resultsPage.getResults().clear();
+        }
+    }
 }

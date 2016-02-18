@@ -1,5 +1,5 @@
 <resources>
-    <string name="tmdb_api_key" translatable="false">PLACE_TMDB_API_KEY_HERE</string>
+    <string name="tmdb_api_key" translatable="false">PLACE_API_KEY_HERE</string>
     <string name="app_name" translatable="false">PopularMovies</string>
     <string name="sort_by_popularity">Popularity</string>
     <string name="sort_by_rating">Rating</string>
@@ -10,5 +10,7 @@
     <string name="title_activity_detail">Movie Detail</string>
     <string name="image_fetch_url_poster" translatable="false">http://image.tmdb.org/t/p/w342/</string>
     <string name="image_fetch_url_backdrop" translatable="false">http://image.tmdb.org/t/p/w500/</string>
-
+    <string name="show_Favorites" translatable="false">Favorites</string>
+    <string name="show_All" translatable="false">All</string>
+    <string name="show_menu_group_title" translatable="false">Load Only</string>
 </resources>

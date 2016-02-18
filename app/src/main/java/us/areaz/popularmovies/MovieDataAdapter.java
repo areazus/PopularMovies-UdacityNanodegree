@@ -1,7 +1,5 @@
 package us.areaz.popularmovies;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import info.movito.themoviedbapi.model.MovieDb;
+import us.areaz.popularmovies.MainActivity.MainActivityFragment;
 
 public class MovieDataAdapter extends RecyclerView.Adapter<MovieDataAdapter.ImageHolder> {
     private MovieResults results = new MovieResults();
@@ -26,7 +25,16 @@ public class MovieDataAdapter extends RecyclerView.Adapter<MovieDataAdapter.Imag
     public static final String Movie_Vote_Average = "mVoteAverage";
     public static final String Movie_Vote_Count = "mVoteCount";
 
+    public void clearResults(){
+        if(this.results != null){
+            this.results.clearAll();
+        }
+    }
+
     public void setResults(MovieResults results){
+        if(results == null){
+            return;
+        }
         if(this.results.getResultCount() == 0){
             this.results = results;
         }else{
@@ -52,8 +60,8 @@ public class MovieDataAdapter extends RecyclerView.Adapter<MovieDataAdapter.Imag
         if(movie != null){
             holder.setMovie(movie);
             String imageURL = url+movie.getPosterPath();
-            Picasso.with(parent.getContext()).setIndicatorsEnabled(true);
-            Picasso.with(parent.getContext()).load(imageURL).into(holder.imageView);
+            Picasso.with(parent.getContext()).load(imageURL).placeholder(R.drawable.placeholder_poster)
+                    .error(R.drawable.placeholder_poster).into(holder.imageView);
         }
     }
 
@@ -82,16 +90,10 @@ public class MovieDataAdapter extends RecyclerView.Adapter<MovieDataAdapter.Imag
 
         @Override
         public void onClick(View v) {
-            Intent movieDetailIntent = new Intent(v.getContext(), MovieDetailActivity.class);
-            movieDetailIntent.putExtra(Movie_ID, movie.getId());
-            movieDetailIntent.putExtra(Movie_Backdrop_Path, movie.getBackdropPath());
-            movieDetailIntent.putExtra(Movie_Overview, movie.getOverview());
-            movieDetailIntent.putExtra(Movie_Poster_Path, movie.getPosterPath());
-            movieDetailIntent.putExtra(Movie_Release_Date, movie.getReleaseDate());
-            movieDetailIntent.putExtra(Movie_Title, movie.getTitle());
-            movieDetailIntent.putExtra(Movie_Vote_Average, movie.getVoteAverage()+"");
-            movieDetailIntent.putExtra(Movie_Vote_Count, movie.getVoteCount());
-            ((Activity)v.getContext()).startActivity(movieDetailIntent);
+            MainActivityFragment mainActivityFragment = (MainActivityFragment)((MainActivity)v.getContext())
+                    .getFragmentManager()
+                    .findFragmentById(R.id.fragment_movies);
+            mainActivityFragment.showDetails(movie);
         }
     }
 
